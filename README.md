@@ -1,7 +1,7 @@
 # slidewright
 
-Turn a *researcher-controlled scientific narrative* into a clear LaTeX Beamer talk,
-then compile, render, and **visually audit** it in a loop.
+> Turn a researcher-controlled scientific narrative into a clear Beamer talk,
+> with an automatic visual-audit loop.
 
 A Cursor/Claude **skill** — not a "figures → PPT" button: the researcher owns the story;
 the AI helps think it through and takes over the LaTeX + compile + layout-checking toil.
@@ -82,8 +82,7 @@ python scripts/contact_sheet.py my-talk/build/pages --label # → build/contact-
 ## Tests
 
 ```bash
-python tests/test_scripts.py      # 13 tests: overflow, render, contact sheet,
-                                  # asset normalize (incl. svg→pdf), build log parse, scaffold
+python -m unittest discover -s tests      # 13 tests + optional: python tests/smoke_cli.py
 ```
 
 The suite synthesizes a slide PDF with `reportlab` and assets with `Pillow`, so it runs
