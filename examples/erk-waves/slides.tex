@@ -1,0 +1,145 @@
+% Worked example — self-contained (no external figures), compiles with:
+%   latexmk -xelatex slides.tex     (or: xelatex slides.tex, twice)
+% Demonstrates the theme + most composition patterns from references/.
+\documentclass[aspectratio=169, 11pt, t]{beamer}
+
+\usepackage{beamerthemeAcademicTalk}
+\useblue
+
+\usepackage{fontspec}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usetikzlibrary{arrows.meta, positioning, calc}
+
+\setlength{\emergencystretch}{2em}
+
+\title[ERK waves]{A minimal mechanochemical feedback explains ERK waves}
+\subtitle{From observation to a testable prediction}
+\author[J. Roe]{Jane Roe}
+\institute[Example Univ.]{Department of Systems Biology, Example University}
+\date{\today}
+\setvenue{Biophysics Seminar}
+
+\begin{document}
+
+\begin{frame}[plain]\titlepage\end{frame}
+
+\begin{frame}
+  \frametitle{Outline}
+  \vskip0.3cm
+  {\footnotesize
+  \begin{tabbing}
+  \hspace{0.4cm}\=\hspace{0.6cm}\=\kill
+  \textbf{\color{accentcolor}1}\>\textbf{Question}\,---\,what sustains ERK waves?\\[8pt]
+  \textbf{\color{accentcolor}2}\>\textbf{Observation}\,---\,ERK leads cell extension\\[8pt]
+  \textbf{\color{accentcolor}3}\>\textbf{Mechanism}\,---\,a two-variable feedback\\[8pt]
+  \textbf{\color{accentcolor}4}\>\textbf{Prediction \& test}\,---\,a fixed phase lead\\
+  \end{tabbing}}
+\end{frame}
+
+% ===== 1 · Question =====
+\sectiondivider{1}{Question}
+
+\begin{frame}
+  \frametitle{ERK waves coordinate collective migration}
+  \vskip0.1cm
+  In migrating epithelial monolayers, ERK activity travels as waves whose fronts
+  move opposite to cell motion, organizing extension over hundreds of microns.
+  \vskip0.2cm
+  \keybox{\textbf{Question:} is mechanical deformation alone enough to \alert{sustain}
+  and propagate these waves?}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Existing chemical models predict the wrong phase}
+  \vskip0.1cm
+  A purely reaction--diffusion account reproduces \emph{a} wave, but places ERK
+  activity \alert{behind} strain --- the opposite of what is measured.
+  \vskip0.2cm
+  That single sign error is the gap this talk closes.
+\end{frame}
+
+% ===== 2 · Observation =====
+\sectiondivider{2}{Observation}
+
+\begin{frame}
+  \frametitle{ERK activation precedes extension by a fixed lag}
+  \begin{columns}[T, onlytextwidth]
+    \column{0.54\textwidth}
+      \vskip0.1cm
+      Cross-correlating the ERK and strain channels across fields gives one
+      consistent relationship:\par\vskip0.15cm
+      $\bullet$ \textbf{Sign}\,---\,ERK leads strain;\par\vskip0.1cm
+      $\bullet$ \textbf{Lag}\,---\,$\sim$20 min, field-independent.
+    \column{0.44\textwidth}
+      \centering
+      \begin{tikzpicture}[scale=0.9]
+        \draw[->] (0,0) -- (4.2,0) node[right,font=\scriptsize]{lag (min)};
+        \draw[->] (0,-0.2) -- (0,2.2) node[above,font=\scriptsize]{corr.};
+        \draw[accentcolor, thick, domain=0:4, samples=60]
+          plot (\x, {1.8*exp(-(\x-2)*(\x-2)/0.6)});
+        \draw[dashed] (2,0) -- (2,1.8);
+        \node[font=\scriptsize] at (2,-0.3) {20};
+      \end{tikzpicture}
+      \figcap{Fig 1\;cross-correlation peak}
+  \end{columns}
+\end{frame}
+
+% ===== 3 · Mechanism =====
+\sectiondivider{3}{Mechanism}
+
+\begin{frame}
+  \frametitle{One feedback term closes the loop}
+  \vskip0.1cm
+  Couple ERK activity $E$ to local strain $s$ with a single mechanical feedback $f(s)$:
+  \vskip0.1cm
+  \[ \dot E = -\,kE + f(s), \qquad \dot s = \alpha E - \beta s. \]
+  \vskip0.1cm
+  For a saturating $f$, the fixed point loses stability through a Hopf bifurcation,
+  and coupling to neighbors turns the oscillation into a \alert{traveling wave}.
+\end{frame}
+
+\begin{frame}
+  \frametitle{The minimal model, in three numbers}
+  \vskip0.2cm
+  \statrow{2}{coupled variables}{1}{feedback term}{0}{fitted parameters}
+  \vskip0.6cm
+  \begin{center}\small
+  Everything below follows from these choices alone.
+  \end{center}
+\end{frame}
+
+% ===== 4 · Prediction & test =====
+\sectiondivider{4}{Prediction \& test}
+
+\begin{frame}
+  \frametitle{Three predictions we can falsify}
+  \vskip0.1cm
+  \hyporow{H1}{ERK leads strain by a fixed lag, set by $k$.}
+          {H2}{Wave speed grows with feedback gain $\alpha$.}
+          {H3}{Blocking feedback halts propagation.}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Model and experiment agree without tuning}
+  \vskip0.1cm
+  \begin{center}\small
+  \begin{tabular}{@{}lcc@{}}
+    \toprule
+    & \textbf{Experiment} & \textbf{Model} \\ \midrule
+    Phase lag (min)              & $19 \pm 3$ & $21$ \\
+    Wave speed ($\mu$m/min)      & $2.4$      & $2.2$ \\
+    Feedback block $\Rightarrow$ arrest & yes & yes \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \vskip0.2cm
+  Both numbers fall within experimental error, with no free parameters.
+\end{frame}
+
+\statementframe{A single mechanical feedback is enough to sustain ERK waves ---
+and it predicts the measured phase lead.}
+
+\thanksframe{Thank you}{jane.roe@example.edu \quad$\cdot$\quad Biophysics Seminar}
+
+\end{document}

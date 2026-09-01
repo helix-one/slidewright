@@ -1,0 +1,129 @@
+% ============================================================
+% Academic talk — deck template (compile with xelatex / latexmk -xelatex)
+% Fill {{...}} placeholders, or scaffold via scripts/new_talk.py.
+% Theme: beamerthemeAcademicTalk.sty (copy next to this file before building)
+% ============================================================
+\documentclass[aspectratio=169, 11pt, t]{beamer}
+
+\usepackage{beamerthemeAcademicTalk}
+\useblue                       % \useblue | \usered | \usegreen | \usepurple | \useteal
+
+% ---------- Fonts ----------
+% xelatex path (recommended). For an English-only talk this block is enough:
+\usepackage{fontspec}
+% \setmainfont{TeX Gyre Termes}   % uncomment if Times-like main font is wanted
+%
+% For a Chinese (or mixed CN/EN) talk, uncomment and pick fonts for your OS:
+% \usepackage{xeCJK}
+% Windows:  \setCJKmainfont{SimSun}[BoldFont=SimHei] \setCJKsansfont{SimHei}
+% macOS:    \setCJKmainfont{Songti SC}[BoldFont=Heiti SC] \setCJKsansfont{Heiti SC}
+% Linux:    \setCJKmainfont{Noto Serif CJK SC}[BoldFont=Noto Sans CJK SC] \setCJKsansfont{Noto Sans CJK SC}
+
+% ---------- Packages ----------
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{hyperref}
+\usetikzlibrary{arrows.meta, positioning, calc}
+
+\setlength{\emergencystretch}{2em}
+\graphicspath{{assets/_normalized/}{assets/}{./}}
+
+% ---------- Metadata ----------
+\title[{{SHORT_TITLE}}]{{{FULL_TITLE}}}
+\subtitle{{{SUBTITLE}}}
+\author[{{SHORT_AUTHOR}}]{{{AUTHOR}}}
+\institute[{{SHORT_INSTITUTE}}]{{{INSTITUTE}}}
+\date{{{DATE}}}
+% \setsupervisor{{{SUPERVISOR}}}
+% \setvenue{{{VENUE}}}
+% \setlogo{logo}              % assets/logo.pdf (omit extension)
+
+\begin{document}
+
+% ---- Title ----
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+% ---- Agenda (one line per section, em-dash subtitle serving the message) ----
+\begin{frame}
+  \frametitle{Outline}
+  \vskip0.3cm
+  {\footnotesize
+  \begin{tabbing}
+  \hspace{0.4cm}\=\hspace{0.6cm}\=\kill
+  \textbf{\color{accentcolor}1}\>\textbf{Question}\,---\,{{WHY_THIS_MATTERS}}\\[8pt]
+  \textbf{\color{accentcolor}2}\>\textbf{Observation}\,---\,{{WHAT_WE_SEE}}\\[8pt]
+  \textbf{\color{accentcolor}3}\>\textbf{Mechanism}\,---\,{{THE_MODEL}}\\[8pt]
+  \textbf{\color{accentcolor}4}\>\textbf{Prediction \& Test}\,---\,{{HOW_WE_CHECK}}\\
+  \end{tabbing}}
+\end{frame}
+
+% ============================================================
+% Section 1
+% ============================================================
+\sectiondivider{1}{Question}
+
+% Pattern: paragraph + take-home box (see references/writing-style.md)
+\begin{frame}
+  \frametitle{{{SLIDE_TITLE_IS_THE_CONCLUSION}}}
+  \vskip0.1cm
+  {{ONE_PARAGRAPH_OF_CONTEXT_100_150_CHARS}}
+  \vskip0.2cm
+  \keybox{\textbf{Question:} {{THE_QUESTION_THIS_SLIDE_ANSWERS}}}
+\end{frame}
+
+% Pattern: text left + figure right
+\begin{frame}
+  \frametitle{{{CONCLUSION_TITLE}}}
+  \begin{columns}[T, onlytextwidth]
+    \column{0.52\textwidth}
+      \vskip0.1cm
+      {{SHORT_TEXT}}\par\vskip0.15cm
+      $\bullet$ \textbf{{{POINT_A}}}\,---\,{{EXPLAIN_A}}\par\vskip0.1cm
+      $\bullet$ \textbf{{{POINT_B}}}\,---\,{{EXPLAIN_B}}
+    \column{0.46\textwidth}
+      \includegraphics[width=\linewidth, height=0.62\textheight, keepaspectratio]{{{FIG1}}}
+      \figcap{Fig 1\;{{CAPTION}}}
+  \end{columns}
+\end{frame}
+
+% ============================================================
+% Section 2
+% ============================================================
+\sectiondivider{2}{Observation}
+
+% Pattern: full-bleed figure + one caption line
+\begin{frame}
+  \frametitle{{{RESULT_STATED_AS_CONCLUSION}}}
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=center] at ([yshift=-0.25cm]current page.center) {%
+      \includegraphics[width=0.90\paperwidth, height=0.70\paperheight, keepaspectratio]{{{FIG2}}}};
+  \end{tikzpicture}
+  \vskip-0.4cm
+  \begin{flushleft}\scriptsize\itshape\color{textgray}
+  Fig 2\;{{WHAT_THE_READER_SHOULD_NOTICE}}
+  \end{flushleft}
+\end{frame}
+
+% Pattern: paragraph + equation + interpretation
+\begin{frame}
+  \frametitle{{{MECHANISM_TITLE}}}
+  \vskip0.1cm
+  {{SETUP_SENTENCE}}
+  \vskip0.15cm
+  \[ {{EQUATION}} \]
+  \vskip0.1cm
+  {{INTERPRETATION_SENTENCE}}
+\end{frame}
+
+% ============================================================
+% Closing
+% ============================================================
+\statementframe{{{ONE_SENTENCE_TAKE_HOME_MESSAGE}}}
+
+\thanksframe{Thank you}{{{CONTACT_OR_ACK}}}
+
+\end{document}

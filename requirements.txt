@@ -1,0 +1,11 @@
+# Python deps for the visual-audit scripts (pure-Python backends).
+# Compilation additionally needs a LaTeX engine (xelatex/latexmk) — not a pip package.
+pymupdf>=1.24      # PDF render + word bboxes (render_pages, check_overflow)
+pillow>=10.0       # contact sheet + raster quality checks
+pyyaml>=6.0        # config parsing (optional)
+reportlab>=4.0     # tests only: synthesize a slide PDF without LaTeX
+
+# Optional, only if you prefer CLI backends over the Python ones:
+#   poppler-utils (pdftoppm, pdftotext)
+#   inkscape or librsvg (svg->pdf, if PyMuPDF's converter is not enough)
+#   ffmpeg (video->frame)

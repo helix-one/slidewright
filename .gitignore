@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# LaTeX / build outputs
+build/
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.pdf
+
+# Keep example sources; ignore generated audit artifacts under talks
+examples/**/build/
+examples/**/assets/_normalized/
+**/contact-sheet.png
+**/pages/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Local talk projects / scratch
+tmp/
+.scratch/
+
+# Upstream study copies (not part of the shipped skill)
+_reference/
