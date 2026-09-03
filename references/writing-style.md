@@ -15,6 +15,35 @@ The #1 tell of AI-generated slides is bullet-list abuse and uniform pages. Avoid
 6. Inline emphasis instead of lists: `\alert{keyword}` (1-2/slide),
    `\textbf{term}\,---\,explanation`, `$\bullet$ \textbf{point}`.
 
+## Metric semantics gate
+
+A plotted number is not self-explanatory. Before placing a derived, project-specific, or
+potentially unfamiliar metric on a slide, verify it against the analysis code and source
+table. Freeze all six links below:
+
+1. **Measured object** — what entity and raw quantity enter the calculation;
+2. **Preprocessing** — normalization, detrending, smoothing, windows, and exclusions;
+3. **Formula** — the exact mathematical definition used by the implementation;
+4. **Aggregation order** — whether averaging occurs over time, cells, regions, fields,
+   or biological repeats, and in what order;
+5. **Interpretation** — what a larger or smaller value physically means;
+6. **Limitation** — what the metric cannot distinguish or establish.
+
+Do not coin a compact label such as “collective fluctuation”, “integration gain”, or
+“relay score” unless it is either standard in the field or explicitly defined on first
+use. Prefer a literal name that exposes the operation, for example “amplitude of the
+per-frame regional median ERK trace”. Do not silently combine a formula from one
+analysis variant with values from another.
+
+For a metric-introduction slide, show the chain visually:
+
+`raw image/trace → selected objects/window → preprocessing → equation → plotted summary`.
+
+Use a small schematic or representative traces alongside the equation, then state in one
+sentence what high and low values mean. If this cannot remain readable at presentation
+size, split method and result across two slides. A result-only bar chart with an undefined
+metric fails production review even when its layout is clean.
+
 ## Red-flag phrasing (rewrite)
 
 Titles: "深入探讨…" / "全面分析…" / "…的重要性" / generic "Methods" / "Results".

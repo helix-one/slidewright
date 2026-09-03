@@ -42,11 +42,18 @@ Trigger: `outline.md` is missing, thin, or the narrative is unclear.
 
 Story is confirmed. Now:
 
-1. `python scripts/normalize_assets.py <talk-dir>` — svg→pdf, video→still, flag low-res
+1. **Audit metric semantics before drawing result slides.** For every derived,
+   project-specific, or potentially unfamiliar metric, trace the displayed value back to
+   its analysis implementation and freeze: measured object, preprocessing, formula,
+   aggregation order/statistical unit, interpretation, and limitation. The slide must
+   make the calculation legible with an equation and/or schematic. If any link is
+   unknown, return to Story phase rather than inventing a label or explanation. See the
+   metric-slide rules in `references/writing-style.md`.
+2. `python scripts/normalize_assets.py <talk-dir>` — svg→pdf, video→still, flag low-res
    figures. An asset existing does NOT mean it must appear; slides serve the story.
-2. Write `slide-map.md` (one row per slide: question → message → visual). **Confirm any
+3. Write `slide-map.md` (one row per slide: question → message → visual). **Confirm any
    major narrative change with the researcher** before writing LaTeX.
-3. Generate `slides.tex` from `templates/academic.tex` + the theme. Follow the
+4. Generate `slides.tex` from `templates/academic.tex` + the theme. Follow the
    composition patterns in `references/writing-style.md`:
    one message per slide · title = the conclusion · figures large · **no bullet walls**
    (`\itemize` is banned; use paragraphs / `\keybox` / `\statrow` / columns).
