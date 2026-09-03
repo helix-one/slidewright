@@ -31,6 +31,13 @@ font size $F$ and placed at scale $s$, its approximate effective size is $sF$; i
 rendered slide rather than trusting the plotting script. A listener should be able to
 read every scientific label from the back of a seminar room.
 
+Treat these as **final PowerPoint-equivalent sizes**, not literal TeX source values. A
+standard 16:9 Beamer PDF is about 453.5 pt wide; when its full-page render is placed on a
+13.333-inch (960 pt) PowerPoint slide, the linear scale is about 2.12. Under that common
+pipeline, 10 pt in the Beamer PDF is approximately 21 pt in PowerPoint, 11.5 pt is about
+24 pt, and 14 pt is about 30 pt. Recalculate the factor when page dimensions or export
+geometry differ. Do not set TeX to 20 pt merely because the PowerPoint target is 20 pt.
+
 When content does not fit, first remove repetition, then enlarge/crop the figure, and
 then split the slide. Do not reduce audience-facing text below the floor. A clean compile
 or lack of geometric overflow does not constitute a readability pass.
