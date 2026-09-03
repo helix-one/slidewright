@@ -15,6 +15,26 @@ The #1 tell of AI-generated slides is bullet-list abuse and uniform pages. Avoid
 6. Inline emphasis instead of lists: `\alert{keyword}` (1-2/slide),
    `\textbf{term}\,---\,explanation`, `$\bullet$ \textbf{point}`.
 
+## Projection readability gate
+
+Font sizes are judged at the final projected slide, not in the source asset:
+
+- **slide titles:** at least 28 pt;
+- **ordinary body text:** 24 pt preferred and never below 20 pt;
+- **equations, tables, figure axes, tick labels, legends, scale bars, and scientific
+  annotations:** at least 20 pt equivalent;
+- **provenance-only material** such as citations, source paths, page numbers, and notes
+  that are not needed to follow the argument may be smaller.
+
+The floor includes text baked into PNGs and other figures. If a figure is generated at
+font size $F$ and placed at scale $s$, its approximate effective size is $sF$; inspect the
+rendered slide rather than trusting the plotting script. A listener should be able to
+read every scientific label from the back of a seminar room.
+
+When content does not fit, first remove repetition, then enlarge/crop the figure, and
+then split the slide. Do not reduce audience-facing text below the floor. A clean compile
+or lack of geometric overflow does not constitute a readability pass.
+
 ## Metric semantics gate
 
 A plotted number is not self-explanatory. Before placing a derived, project-specific, or

@@ -46,6 +46,10 @@ Fix a flagged frame by: `\small`/`\footnotesize` on the body · shrink the figur
 - Are axis labels, legends, error bars legible at slide size? If a figure's text is
   unreadable, it hasn't done its job → enlarge, crop, or split.
 - Equations not too dense; references not stealing visual attention.
+- Confirm the final-size type floor from `writing-style.md`: titles ≥28 pt and all
+  audience-facing body/figure text ≥20 pt (24 pt preferred for body). Include labels
+  embedded in raster figures; only provenance notes and other non-narrative footnotes
+  are exempt.
 
 **Information density**
 - One dominant message per page? Any "wall of paper screenshots"? Any bullet walls
@@ -62,5 +66,6 @@ Fix a flagged frame by: `\small`/`\footnotesize` on the body · shrink the figur
 
 - `check_overflow.py` exits clean (no errors).
 - No `Overfull \hbox` on critical text frames.
+- No audience-facing text below the projection-size floor, including text inside figures.
 - Contact sheet reads as a coherent story with large, legible figures and no bullet walls.
 - Every content slide's title states its conclusion.

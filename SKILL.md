@@ -57,6 +57,13 @@ Story is confirmed. Now:
    composition patterns in `references/writing-style.md`:
    one message per slide · title = the conclusion · figures large · **no bullet walls**
    (`\itemize` is banned; use paragraphs / `\keybox` / `\statrow` / columns).
+5. **Enforce the projection-size type floor.** At final slide size, audience-facing
+   titles must be at least 28 pt; body text, equations, table text, figure axes, legends,
+   and data annotations must be at least 20 pt, with 24 pt preferred for ordinary body
+   text. Provenance notes, citations, page numbers, and other non-narrative footnotes may
+   be smaller. Scaling a figure also scales its embedded labels, so check their effective
+   size after placement. Split or simplify a slide when the floor does not fit; never
+   solve density by shrinking scientific content. See `references/writing-style.md`.
 
 ### Phase 3 — Visual audit  (read `references/visual-audit.md`)
 
